@@ -148,6 +148,8 @@ void loop() {
           Serial.println("UNKNOWN PAL");
         }
       }
+      parse_ascii.reinit();
+      while(Serial1.available()) Serial1.read();
     }
   }
 }
