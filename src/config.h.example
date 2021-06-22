@@ -1,0 +1,8 @@
+
+const char* ssid = "Wifi ESSID";
+const char* password = "Wifi Password";
+
+unsigned int channelId = XXXXXXXX; // AmbientのチャネルID
+const char* writeKey = "XXXXXXXXXXX"; // ライトキー
+
+const char* token = "XXXXXXXXX"; // Line Notify トークン
