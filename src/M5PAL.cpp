@@ -54,15 +54,15 @@ void send(String message) {
 
   while (client.connected()) {
     String line = client.readStringUntil('\n');
-//    Serial.println(line);
+    Serial.println(line);
     if (line == "\r") {
       break;
     }
   }
 
   String line = client.readStringUntil('\n');
-//Serial.println(line);
-
+  Serial.println(line);
+  client.stop();
 }
 
 void setup() {
@@ -91,6 +91,7 @@ void loop() {
     if (parse_ascii) {
       getLocalTime(&timeInfo);
       sprintf(datetime, "Time:%04d/%02d/%02d %02d:%02d:%02d",timeInfo.tm_year+1900, timeInfo.tm_mon+1, timeInfo.tm_mday, timeInfo.tm_hour,timeInfo.tm_min,timeInfo.tm_sec);
+      Serial.println(datetime);
       auto&& pkt = newTwePacket(parse_ascii.get_payload());
       E_PKT pkt_typ = identify_packet_type(pkt);
       if (pkt_typ == E_PKT::PKT_PAL) {
