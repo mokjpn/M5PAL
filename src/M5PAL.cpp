@@ -1,5 +1,5 @@
 #include <mwm5.h>
-#include <Arduino.h>
+#include <M5Stack.h>
 #include <WiFi.h>
 #include <WiFiClientSecure.h>
 #include <time.h>
@@ -66,8 +66,7 @@ void send(String message) {
 }
 
 void setup() {
-  M5.begin(false);
-  //M5.dis.clear();
+  M5.begin(false, false, true, false);
   Serial1.setRxBufferSize(1024);
   Serial.begin(115200);
   Serial1.begin(115200,SERIAL_8N1, 21,25);
